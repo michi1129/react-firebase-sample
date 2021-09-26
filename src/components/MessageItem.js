@@ -2,7 +2,7 @@ import React from "react";
 import { ListItem, ListItemAvatar, ListItemText, Typography, Avatar, makeStyles } from "@material-ui/core";
 import { gravatarPath } from "../gravatar";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   inline: {
     display: 'inline',
   },
