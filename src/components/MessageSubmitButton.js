@@ -8,7 +8,7 @@ const MessageSubmitButton = ({ name, text, setText, inputElement }) => {
     <IconButton
       disabled={text === ''}
       onClick={() => {
-        pushMessage({ name: 'bbb', text });
+        pushMessage({ name, text });
         setText('');
         // inputElement.current.focus();
       }}
