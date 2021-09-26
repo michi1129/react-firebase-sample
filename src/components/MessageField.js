@@ -19,7 +19,7 @@ const MessageField = ({ name, text, setText, inputElement }) => {
         if (text === '') return;
 
         if (e.key === 'Enter') {
-          pushMessage({ name: 'aaaa', text });
+          pushMessage({ name, text });
           setText('');
           e.preventDefault();
         }
