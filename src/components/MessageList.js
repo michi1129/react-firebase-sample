@@ -34,7 +34,7 @@ const MessageList = () => {
       setMessages(newMessages);
 
     }, {
-      onlyOnce: true
+      onlyOnce: false
     });
 
   }, []);
