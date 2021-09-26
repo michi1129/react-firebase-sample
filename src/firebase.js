@@ -1,21 +1,30 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, set } from 'firebase/database'
 
+const {
+  REACT_APP_FIREBASE_API_KEY,
+  REACT_APP_FIREBASE_AUTH_DOMAIN,
+  REACT_APP_FIREBASE_PROJECT_ID,
+  REACT_APP_FIREBASE_STORAGE_BUCKET,
+  REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  REACT_APP_FIREBASE_APP_ID,
+} = process.env;
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBpb8j-2mwkGIgQs1mXePZIEvh5liqzMC0",
-  authDomain: "idobata-demo-3.firebaseapp.com",
-  projectId: "idobata-demo-3",
-  storageBucket: "idobata-demo-3.appspot.com",
-  messagingSenderId: "896750112976",
-  appId: "1:896750112976:web:4ce6743895a80b70590ed5"
+  apiKey: REACT_APP_FIREBASE_API_KEY,
+  authDomain: REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: REACT_APP_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-const messageRef = ref(database, 'messages');
+const messagesRef = ref(database, 'messages');
 
 export const pushMessage = ({ name, text }) => {
-  const newRef = push(messageRef);
-  set(newRef, { name, text });
+  const newMessagesRef = push(messagesRef);
+  set(newMessagesRef, { name, text });
 }
